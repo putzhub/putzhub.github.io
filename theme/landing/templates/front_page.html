@@ -18,8 +18,8 @@
             <article class="hentry">
                 <header>
                     <h3><a href="{{ article.link }}">{{ article.title }}</a></h3>
+                    <time>{{ article.date|strftime('%d %B %Y') }}</time>
                 </header>
-                <p>{{ article.date|strftime('%d %B %Y') }}</p>
                 <div class="entry-content">
                 {{ article.description}}
                 </div>

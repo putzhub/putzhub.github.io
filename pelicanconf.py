@@ -40,7 +40,7 @@ WEBRING_FEED_URLS = [
     "https://music.putz.space/feeds/all.atom.xml",
 ]
 WEBRING_ARTICLES_PER_FEED = 10
-WEBRING_MAX_ARTICLES = 25
+WEBRING_MAX_ARTICLES = 24
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

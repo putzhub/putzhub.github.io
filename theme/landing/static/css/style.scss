@@ -1,16 +1,16 @@
 /* SASS */
 /* variables */
 //-layout-
-$default-padding: 1rem;
-$default-margin: .5rem 0;
+$default-padding: .5rem;
+$default-margin: .25rem;
 $default-gap: 1rem;
 //-colors-
-$color-primary: #1C441A;
-$color-secondary: #274426;
-$color-tertiary: #3c4e3b;
+$color-primary: #442F74;
+$color-secondary: #57399C;
+$color-tertiary: #2F224D;
 $color-contrast: #DDEEDD;
-$color-accent: #bdddbc;
-$color-base: #050e05;
+$color-accent: #b09cdd;
+$color-base: #181225;
 $color-background: #0E320C;
 $color-paragraph: rgba(10,10,10,1);
 $color-input: rgba(10,10,10,.25);
@@ -79,7 +79,7 @@ h1,h2,h3,h4,h5,h6 {
     //layout
     margin: $default-margin;
     margin-bottom: .1rem;
-    //padding: $default-padding;
+    padding: $default-padding;
     //font
     font-family: monospace;
 }
@@ -90,7 +90,7 @@ h1{
 @for $i from 1 through 6{
     h#{$i}{
         //font-size scaling
-        $offset: 1.2;
+        $offset: 1;
         $scale: .1;
         font-size: #{((6-$i)*$scale)+$offset}rem;
         font-weight: #{750-($i*50)};    //max font-weight is 700, start at 750 to accomodate
@@ -202,24 +202,77 @@ figcaption{
     text-align: right;
 }
 
+time {
+    //layout
+    margin: $default-margin;
+    padding: $default-padding;
+    //style
+    color: $color-contrast;
+    font-family: monospace;
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    //background-color: $color-secondary;
+    @include invisible-border-style;
+}
+
 /* -- FRONT PAGE -- */
 
 #webring {
     //layout
     display: grid;
     gap: $default-gap;
+    grid-template-rows: 33%;
     grid-template-columns: auto auto auto;
+    @media(max-width: $mobile-breakpoint-tablet){
+        grid-template-columns: auto auto;
+    }
+    @media(max-width: $mobile-breakpoint-smallest){
+        grid-template-columns: auto;
+    }
     margin: $default-margin;
     padding: $default-padding;
+    img {
+        @include invisible-border-style;
+        //max-height: 12rem;
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+    }
+    p{
+        //margin: $default-margin;
+        //padding: $default-padding;
+        //background-color: $color-paragraph;
+        @include invisible-border-style;
+    }
 }
 
 .hentry{
     //layout
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
     padding: $default-padding;
     margin: $default-margin;
     max-width: 30rem;
-    min-height: 15rem;
+    //min-height: 15rem;
     //style
-    background-color: $color-paragraph;
-    @include invisible-border-style;
+    background-color: $color-tertiary;
+    @include visible-border-style;
+    header{
+        //max-height: 8rem;
+        width: 15rem;
+        background-color: $color-caption;
+        border-right: $color-base 3px solid;
+        border-bottom: $color-base 3px solid;
+    }
+    h3{
+        background-color: $color-primary;
+        @include invisible-border-style;
+    }
+}
+
+.entry-content {
+    text-align: center;
+    padding: $default-padding;
 }
