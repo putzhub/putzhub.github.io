@@ -1,0 +1,30 @@
+{% if SITESUBTITLE %}
+<p id="subtitle">
+<strong>{{ SITESUBTITLE }}</strong> 
+</p>
+{% endif %}
+
+<section id="landing-portfolio">
+    <div id="decision">
+
+    </div>
+</section>
+
+<section id="content" class="body">
+    <h2 class="entry-title">Latest News</h2>
+    <div id="webring">
+    {% if WEBRING_FEED_URLS %}
+        {% for article in webring_articles %}
+            <article class="hentry">
+                <header>
+                    <h3><a href="{{ article.link }}">{{ article.title }}</a></h3>
+                </header>
+                <p>{{ article.date|strftime('%d %B %Y') }}</p>
+                <div class="entry-content">
+                {{ article.description}}
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
+    </div>
+</section>
