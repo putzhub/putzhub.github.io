@@ -217,11 +217,88 @@ time {
 
 /* -- FRONT PAGE -- */
 
+@keyframes wumbo {
+    from{
+        color: $color-accent;
+    }
+    to{
+        color: $color-contrast;
+    }
+
+}
+
+#subtitle {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.decision {
+    display: grid;
+    //align-items: center;
+    //justify-items: center;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    //style
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: bold;
+    background-color: rgba($color-paragraph, .4);
+    @include visible-border-style;
+    border-radius: 100px;
+
+    a{
+        display: inline-block;
+        padding: $default-padding;
+        margin: $default-margin;
+        margin: 12vh auto;
+        //style
+        animation: wumbo 1s linear alternate infinite;
+        background-color: $color-tertiary;
+        @include invisible-border-style;
+        letter-spacing: .2rem;
+
+        font-size: 8rem;
+        @media(max-width: $mobile-breakpoint-tablet){
+            font-size: 5rem;
+        }
+        @media(max-width: $mobile-breakpoint-smallest){
+            font-size: 3rem;
+        }
+    }
+    #music{
+        background-size: 32px 32px;
+        background-image:
+            linear-gradient(to right, transparent 1px, #4ea7b9 4px, transparent 1px),
+            linear-gradient(to bottom, transparent 1px, #4ea7b9 4px, transparent 1px);
+        border-bottom-right-radius: 100px;
+        border-top-right-radius: 100px;
+        text-align: center;
+        //grid-area: music;
+        //@include visible-border-style;
+    }
+    #web{
+        background-size: 32px 32px;
+        //background-image: url("/theme/images/bg.png"); //tested if image behaves differently
+        background-image: linear-gradient(to right, 
+                                        transparent 1px, 
+                                        #1C441A 4px, 
+                                        transparent 1px), 
+                        linear-gradient(to bottom, 
+                                        transparent 1px, 
+                                        #1C441A 4px, 
+                                        transparent 1px);
+        border-bottom-left-radius: 100px;
+        border-top-left-radius: 100px;
+        text-align: center;
+        //grid-area: web;
+        //@include visible-border-style;
+    }
+}
+
 #webring {
     //layout
     display: grid;
     gap: $default-gap;
-    grid-template-rows: 33%;
+    grid-template-rows: auto;
     grid-template-columns: auto auto auto;
     @media(max-width: $mobile-breakpoint-tablet){
         grid-template-columns: auto auto;
@@ -249,16 +326,16 @@ time {
 .hentry{
     //layout
     display: flex;
-    justify-content: space-evenly;
+    //justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: column;
     padding: $default-padding;
     margin: $default-margin;
-    max-width: 30rem;
+    max-width: 80%;
     //min-height: 15rem;
     //style
-    background-color: $color-tertiary;
-    @include visible-border-style;
+    //background-color: $color-tertiary;
+    //@include visible-border-style;
     header{
         //max-height: 8rem;
         width: 15rem;
@@ -267,6 +344,7 @@ time {
         border-bottom: $color-base 3px solid;
     }
     h3{
+        width: 100%;
         background-color: $color-primary;
         @include invisible-border-style;
     }
@@ -275,4 +353,7 @@ time {
 .entry-content {
     text-align: center;
     padding: $default-padding;
+    
+    background-color: $color-tertiary;
+    @include invisible-border-style;
 }
